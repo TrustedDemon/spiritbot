@@ -1,0 +1,26 @@
+const ReactionRoleManager = require("discord-reaction-role");
+const manager = new ReactionRoleManager(client, {
+    storage: "./reaction-role.json"
+});
+client.reactionRoleManager = manager;
+
+client.on("message", message => {
+    if(message.content == this.getDBM().Files.data.settings.tag + "rr") {
+        client.reactionRoleManager.create({
+      messageID: '734212354069495869', // put the message ID here
+      channel: message.channel, // either put the channel name in "" or leave it as message.channel for the current channel
+      reaction: '?', // if it's a custom emoji format it like this: <a:thinkhfjkld:403727203864412161>
+      role: message.guild.roles.cache.get('732426170079117346') // put the role ID 
+    });
+    }
+    });
+    
+client.on("message", message => {
+    if(message.content == this.getDBM().Files.data.settings.tag + "rrdelete") {
+        client.reactionRoleManager.delete({
+          messageID: "734212354069495869",
+          reaction: "?",
+        });
+    }
+})
+
